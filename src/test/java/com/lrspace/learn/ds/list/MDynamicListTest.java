@@ -2,8 +2,6 @@ package com.lrspace.learn.ds.list;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class MDynamicListTest {
 
     @Test
