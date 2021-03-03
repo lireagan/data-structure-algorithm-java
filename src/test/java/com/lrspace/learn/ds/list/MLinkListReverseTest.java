@@ -2,9 +2,7 @@ package com.lrspace.learn.ds.list;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class MLinkListAdvancedOpTest {
+public class MLinkListReverseTest {
 
     @Test
     public void reverse() {
@@ -17,10 +15,10 @@ public class MLinkListAdvancedOpTest {
         mLinkList.add(5);
         System.out.println("原始单向链表: " + mLinkList.toString());
         /* 循环遍历反转 */
-        MLinkList reverseLoop = MLinkListAdvancedOp.reverseLoop(mLinkList);
+        MLinkList reverseLoop = MLinkListReverse.reverseLoop(mLinkList);
         System.out.println("【方法一】循环遍历反转: " + reverseLoop.toString());
         /* 递归反转 */
-        MLinkList reverseRecurse = MLinkListAdvancedOp.reverseRecurse(mLinkList);
+        MLinkList reverseRecurse = MLinkListReverse.reverseRecurse(mLinkList);
         System.out.println("【方法二】递归反转: " + reverseRecurse.toString());
     }
 }

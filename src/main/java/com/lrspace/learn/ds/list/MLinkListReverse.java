@@ -4,10 +4,10 @@ import com.lrspace.learn.ds.list.MLinkList.Node;
 
 /**
  * Author: llx
- * Description: 单链表进阶
+ * Description: 单链表反转
  * Date: 2021/2/17
  */
-public class MLinkListAdvancedOp {
+public class MLinkListReverse {
 
     /**
      * 方法一：循环遍历反转
