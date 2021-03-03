@@ -6,24 +6,9 @@ package com.lrspace.learn.ds.list;
  * Date: 2021/2/16
  */
 public class MLinkList<E> {
-    /**
-     * 节点
-     */
-    public class Node<E> {
-        /* 数据域 */
-        public E data;
-        /* 单向链表的指针域指向下一个节点 */
-        public Node next;
-
-        public Node(E data) {
-            this.data = data;
-        }
-    }
 
     /* 头节点 */
     private Node head;
-    /* 当前数据元素个数 */
-    private int size;
 
     /**
      * 返回头节点
@@ -40,6 +25,15 @@ public class MLinkList<E> {
      * @return size个数
      */
     public int size() {
+        Node cur = head.next;
+        if(cur.next == null) {
+            return 0;
+        }
+        int size = 1;
+        while(cur.next != null) {
+            cur = cur.next;
+            size++;
+        }
         return size;
     }
 
@@ -48,7 +42,6 @@ public class MLinkList<E> {
      */
     public MLinkList() {
         head = new Node(null); // 头节点数据域为空
-        size = 0;
     }
 
     /**
@@ -63,7 +56,6 @@ public class MLinkList<E> {
             cur = cur.next;
         }
         cur.next = tmp;
-        size++;
     }
 
     /**
@@ -73,7 +65,7 @@ public class MLinkList<E> {
      * @param data 待插入的数据
      */
     public void insert(int pos, E data) {
-        if (pos >= size || pos < 0) {
+        if (pos >= this.size() || pos < 0) {
             throw new IllegalArgumentException("error: the input pos " + pos + " is exceed the bound.");
         }
         Node tmp = new Node(data);
@@ -90,7 +82,6 @@ public class MLinkList<E> {
         Node curNext = cur.next;
         cur.next = tmp;
         tmp.next = curNext;
-        size++;
     }
 
     /**
@@ -99,7 +90,7 @@ public class MLinkList<E> {
      * @param pos 待删除数据元素的位置
      */
     public void delete(int pos) {
-        if (pos >= size || pos < 0) {
+        if (pos >= this.size() || pos < 0) {
             throw new IllegalArgumentException("error: the input pos " + pos + " is exceed the bound.");
         }
         if (pos == 0) {
@@ -112,7 +103,6 @@ public class MLinkList<E> {
         }
         Node curNext = cur.next;
         cur.next = curNext.next;
-        size--;
     }
 
     /**
@@ -122,7 +112,7 @@ public class MLinkList<E> {
      * @param data 待更新数据元素的目标值
      */
     public void update(int pos, E data) {
-        if (pos >= size || pos < 0) {
+        if (pos >= this.size() || pos < 0) {
             throw new IllegalArgumentException("error: the input pos " + pos + " is exceed the bound.");
         }
         Node cur = head;
@@ -139,7 +129,7 @@ public class MLinkList<E> {
      * @return 查询出的数据元素
      */
     public E select(int pos) {
-        if (pos >= size || pos < 0) {
+        if (pos >= this.size() || pos < 0) {
             throw new IllegalArgumentException("error: the input pos " + pos + " is exceed the bound.");
         }
         Node cur = head;
@@ -152,23 +142,20 @@ public class MLinkList<E> {
     @Override
     public MLinkList clone() {
         MLinkList mLinkList_ = new MLinkList();
-        if(this.size == 0) {
+        if (this.size() == 0) {
             return mLinkList_;
         }
         Node cur = this.head.next;
         Node cur_ = new Node(cur.data);
         mLinkList_.head.next = cur_;
-        mLinkList_.size = 1;
 
-        while(cur.next != null) {
+        while (cur.next != null) {
             Node curNext = cur.next;
             Node curNext_ = new Node(curNext.data);
             cur_.next = curNext_;
 
             cur_ = curNext_;
             cur = curNext;
-
-            mLinkList_.size++;
         }
         return mLinkList_;
     }
@@ -178,12 +165,12 @@ public class MLinkList<E> {
         StringBuilder out = new StringBuilder();
         out.append("[");
         Node cur = head;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < this.size(); i++) {
             cur = cur.next;
             out.append(cur.data.toString());
             out.append(", ");
         }
-        if (size > 0) {
+        if (this.size() > 0) {
             out.delete(out.length() - 2, out.length());
         }
         out.append("]");

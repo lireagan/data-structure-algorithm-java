@@ -1,6 +1,5 @@
 package com.lrspace.learn.ds.list;
 
-import com.lrspace.learn.ds.list.MLinkList.Node;
 
 /**
  * Author: llx
