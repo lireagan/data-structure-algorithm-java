@@ -20,16 +20,16 @@ public class OpLinkListRing {
         if (mLinkList.getHead().next == null || mLinkList.getHead().next.next == null) {
             return false;
         }
-        MNode slow = mLinkList.getHead().next;
+        MNode slow = mLinkList.getHead();
         MNode fast = slow;
 
         while (true) {
             slow = slow.next;
-            fast = fast.next.next;
-            if (fast == null) {
-                // 如果出现了尾节点，则不成环
+            if (fast.next == null || fast.next.next == null) {
+                // 如果出现了尾节点，则没有环
                 return false;
             }
+            fast = fast.next.next;
             if (slow == fast) {
                 return true;
             }
@@ -47,7 +47,7 @@ public class OpLinkListRing {
             return 0;
         }
 
-        MNode slow = mLinkList.getHead().next;
+        MNode slow = mLinkList.getHead();
         MNode fast = slow;
 
         int round = 0; // 记录跑圈数
@@ -55,12 +55,11 @@ public class OpLinkListRing {
 
         while (true) {
             slow = slow.next;
-            fast = fast.next.next;
-
-            if (fast == null) {
+            if (fast.next == null || fast.next.next == null) {
                 // 如果出现了尾节点，则没有环
                 return 0;
             }
+            fast = fast.next.next;
 
             if (slow == fast) {
                 round++;
@@ -84,7 +83,7 @@ public class OpLinkListRing {
         if (mLinkList.getHead().next == null || mLinkList.getHead().next.next == null) {
             return null;
         }
-        MNode slow = mLinkList.getHead().next;
+        MNode slow = mLinkList.getHead();
         MNode fast = slow;
 
         List<MNode> nodesInRing = new ArrayList<>();
@@ -92,11 +91,11 @@ public class OpLinkListRing {
         int round = 0; // 记录跑圈数
         while (true) {
             slow = slow.next;
-            fast = fast.next.next;
-            if (fast == null) {
+            if (fast.next == null || fast.next.next == null) {
                 // 如果出现了尾节点，则没有环
                 return null;
             }
+            fast = fast.next.next;
             if (slow == fast) {
                 round++;
             }

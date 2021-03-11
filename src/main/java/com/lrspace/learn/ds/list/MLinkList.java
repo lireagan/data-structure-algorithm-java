@@ -166,20 +166,18 @@ public class MLinkList<E> {
 
     @Override
     public String toString() {
-        if (this.size() == 0) {
-            return "";
+        MNode cur = head;
+        if (cur.next == null) {
+            return "[]";
         }
         StringBuilder out = new StringBuilder();
         out.append("[");
-        MNode cur = head;
-        for (int i = 0; i < this.size(); i++) {
+        while (cur.next != null) {
             cur = cur.next;
             out.append(cur.data.toString());
             out.append(", ");
         }
-        if (this.size() > 0) {
-            out.delete(out.length() - 2, out.length());
-        }
+        out.delete(out.length() - 2, out.length());
         out.append("]");
         return out.toString();
     }

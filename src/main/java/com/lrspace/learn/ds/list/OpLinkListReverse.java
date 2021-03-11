@@ -43,6 +43,7 @@ public class OpLinkListReverse {
      * @return 反转后的单向链表
      */
     public static MLinkList reverseRecurse(MLinkList mLinkList) {
+        // TODO 有bug
         MLinkList reversedMLinkList = mLinkList.clone(); // 存储反转过后的单链表
         if (reversedMLinkList.size() < 2) {
             return mLinkList;
