@@ -2,7 +2,7 @@ package com.lrspace.learn.ds.list;
 
 import org.junit.Test;
 
-public class OpLinkListRingTest {
+public class AlgoLinkListRingTest {
 
     @Test
     public void testRing() {
@@ -25,9 +25,9 @@ public class OpLinkListRingTest {
         MNode head = mLinkList.getHead();
         head.next = n1;
 
-        System.out.println("该链表中是否有环：" + OpLinkListRing.existsRing(mLinkList));
-        System.out.println("环的长度是：" + OpLinkListRing.calcRingLength(mLinkList));
-        System.out.println("环的入口节点的数据域是：" + OpLinkListRing.findRingDoor(mLinkList).data);
+        System.out.println("该链表中是否有环：" + AlgoLinkListRing.existsRing(mLinkList));
+        System.out.println("环的长度是：" + AlgoLinkListRing.calcRingLength(mLinkList));
+        System.out.println("环的入口节点的数据域是：" + AlgoLinkListRing.findRingDoor(mLinkList).data);
         System.out.println("该链表的长度是：" + mLinkList.size());
     }
 }

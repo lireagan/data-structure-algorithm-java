@@ -6,7 +6,7 @@ package com.lrspace.learn.ds.list;
  * Description: 单链表反转
  * Date: 2021/2/17
  */
-public class OpLinkListReverse {
+public class AlgoLinkListReverse {
 
     /**
      * 方法一：循环遍历反转

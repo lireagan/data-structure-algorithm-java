@@ -1,7 +1,7 @@
 package com.lrspace.learn.ds.list;
 
-import static com.lrspace.learn.ds.list.OpLinkListRing.calcRingLength;
-import static com.lrspace.learn.ds.list.OpLinkListRing.findRingDoor;
+import static com.lrspace.learn.ds.list.AlgoLinkListRing.calcRingLength;
+import static com.lrspace.learn.ds.list.AlgoLinkListRing.findRingDoor;
 
 /**
  * Author: llx

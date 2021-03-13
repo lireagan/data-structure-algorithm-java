@@ -8,7 +8,7 @@ import java.util.List;
  * Description: 单链表环的相关算法
  * Date: 2021/03/03
  */
-public class OpLinkListRing {
+public class AlgoLinkListRing {
 
     /**
      * 判断链表中是否有环（原理是快慢指针）
