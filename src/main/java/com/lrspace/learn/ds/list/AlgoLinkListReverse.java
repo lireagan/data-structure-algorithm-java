@@ -6,7 +6,7 @@ package com.lrspace.learn.ds.list;
  * Description: 单链表反转
  * Date: 2021/2/17
  */
-public class OpLinkListReverse {
+public class AlgoLinkListReverse {
 
     /**
      * 方法一：循环遍历反转
@@ -43,6 +43,7 @@ public class OpLinkListReverse {
      * @return 反转后的单向链表
      */
     public static MLinkList reverseRecurse(MLinkList mLinkList) {
+        // TODO 有bug
         MLinkList reversedMLinkList = mLinkList.clone(); // 存储反转过后的单链表
         if (reversedMLinkList.size() < 2) {
             return mLinkList;
@@ -52,22 +53,21 @@ public class OpLinkListReverse {
     }
 
     /**
-     * 反转递归算子，将输入节点及之后的节点反转
+     * 反转递归算子：recurse(MLinkList)= recurse(MLinkList.next) + 然后把反转尾节点指向首元节点
      *
-     * @param MNode 输入节点一开始是第一个节点
-     * @param head 用于将反转后的首元节点链接到头节点上
-     * @return 输出节点与输入节点是同一个，但输出时变成了最后一个节点
+     * @param firstNode 首元节点
+     * @param head      头结点
+     * @return 反转之后的尾节点
      */
-    private static MNode recurse(MNode MNode, MNode head) {
-        if (MNode.next == null) {
+    private static MNode recurse(MNode firstNode, MNode head) {
+        if (firstNode.next == null) {
             // 递归的出口，直到链表的尾节点终止
-            head.next = MNode;
-            return MNode;
+            head.next = firstNode;
         } else {
-            MNode cur = recurse(MNode.next, head);
-            MNode curPre = MNode;
-            cur.next = curPre;
-            return curPre;
+            MNode lastNodeAfterReverse = recurse(firstNode.next, head);
+            firstNode.next = null;
+            lastNodeAfterReverse.next = firstNode;
         }
+        return firstNode;
     }
 }

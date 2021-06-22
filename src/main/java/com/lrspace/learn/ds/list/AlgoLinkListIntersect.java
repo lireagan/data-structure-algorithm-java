@@ -6,7 +6,7 @@ package com.lrspace.learn.ds.list;
  * Description: 单链表相交判断
  * Date: 2021/03/03
  */
-public class OpLinkListIntersect {
+public class AlgoLinkListIntersect {
     /**
      * 判断链表是否相交（O(n+m)），原理是2个相交的链表末尾肯定一样
      *

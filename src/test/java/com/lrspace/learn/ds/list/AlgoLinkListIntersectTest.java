@@ -2,7 +2,7 @@ package com.lrspace.learn.ds.list;
 
 import org.junit.Test;
 
-public class OpLinkListIntersectTest {
+public class AlgoLinkListIntersectTest {
 
     @Test
     public void judgeIntersectByLast() {
@@ -35,9 +35,9 @@ public class OpLinkListIntersectTest {
         l3.add("node9");
         System.out.println("l3：" +l3.toString());
 
-        System.out.println("l1与l2是否相交：" + OpLinkListIntersect.judgeIntersectByLast(l1, l2));
-        System.out.println("l2与l3是否相交：" + OpLinkListIntersect.judgeIntersectByLast(l2, l3));
-        System.out.println("l3与l1是否相交：" + OpLinkListIntersect.judgeIntersectByLast(l3, l1));
+        System.out.println("l1与l2是否相交：" + AlgoLinkListIntersect.judgeIntersectByLast(l1, l2));
+        System.out.println("l2与l3是否相交：" + AlgoLinkListIntersect.judgeIntersectByLast(l2, l3));
+        System.out.println("l3与l1是否相交：" + AlgoLinkListIntersect.judgeIntersectByLast(l3, l1));
 
     }
 }

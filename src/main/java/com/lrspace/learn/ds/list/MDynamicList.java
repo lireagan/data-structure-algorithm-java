@@ -115,6 +115,9 @@ public class MDynamicList<E> {
 
     @Override
     public String toString() {
+        if (size == 0) {
+            return "[]";
+        }
         StringBuilder out = new StringBuilder();
         out.append("[");
         for (int i = 0; i < size; i++) {
